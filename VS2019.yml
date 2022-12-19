@@ -1,0 +1,9 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - '& "C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout\InstallCleanup.exe" -f'
+      - Invoke-WebRequest -Uri "https://aka.ms/vs/16/release/vs_Professional.exe" -OutFile "C:\vs_buildtools.exe"
+      - Start-Process -FilePath C:\vs_buildtools.exe -ArgumentList "--add", "Microsoft.VisualStudio.Workload.VCTools", "--add", "Microsoft.VisualStudio.Workload.VisualStudioExtensionBuildTools", "--add", "Microsoft.VisualStudio.Workload.NativeDesktop", "--includeOptional", "--includeRecommended", "--wait", "--quiet" -Wait -PassThru
+      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe" -help'

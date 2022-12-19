@@ -1,0 +1,160 @@
+{
+    "name": "",
+    "description": "",
+    "source": {
+        "type": "S3",
+        "location": "",
+        "gitCloneDepth": 0,
+        "gitSubmodulesConfig": {
+            "fetchSubmodules": true
+        },
+        "buildspec": "",
+        "auth": {
+            "type": "OAUTH",
+            "resource": ""
+        },
+        "reportBuildStatus": true,
+        "buildStatusConfig": {
+            "context": "",
+            "targetUrl": ""
+        },
+        "insecureSsl": true,
+        "sourceIdentifier": ""
+    },
+    "secondarySources": [
+        {
+            "type": "GITHUB_ENTERPRISE",
+            "location": "",
+            "gitCloneDepth": 0,
+            "gitSubmodulesConfig": {
+                "fetchSubmodules": true
+            },
+            "buildspec": "",
+            "auth": {
+                "type": "OAUTH",
+                "resource": ""
+            },
+            "reportBuildStatus": true,
+            "buildStatusConfig": {
+                "context": "",
+                "targetUrl": ""
+            },
+            "insecureSsl": true,
+            "sourceIdentifier": ""
+        }
+    ],
+    "sourceVersion": "",
+    "secondarySourceVersions": [
+        {
+            "sourceIdentifier": "",
+            "sourceVersion": ""
+        }
+    ],
+    "artifacts": {
+        "type": "S3",
+        "location": "",
+        "path": "",
+        "namespaceType": "BUILD_ID",
+        "name": "",
+        "packaging": "NONE",
+        "overrideArtifactName": true,
+        "encryptionDisabled": true,
+        "artifactIdentifier": "",
+        "bucketOwnerAccess": "FULL"
+    },
+    "secondaryArtifacts": [
+        {
+            "type": "CODEPIPELINE",
+            "location": "",
+            "path": "",
+            "namespaceType": "BUILD_ID",
+            "name": "",
+            "packaging": "NONE",
+            "overrideArtifactName": true,
+            "encryptionDisabled": true,
+            "artifactIdentifier": "",
+            "bucketOwnerAccess": "NONE"
+        }
+    ],
+    "cache": {
+        "type": "S3",
+        "location": "",
+        "modes": [
+            "LOCAL_SOURCE_CACHE"
+        ]
+    },
+    "environment": {
+        "type": "LINUX_GPU_CONTAINER",
+        "image": "",
+        "computeType": "BUILD_GENERAL1_LARGE",
+        "environmentVariables": [
+            {
+                "name": "",
+                "value": "",
+                "type": "PARAMETER_STORE"
+            }
+        ],
+        "privilegedMode": true,
+        "certificate": "",
+        "registryCredential": {
+            "credential": "",
+            "credentialProvider": "SECRETS_MANAGER"
+        },
+        "imagePullCredentialsType": "SERVICE_ROLE"
+    },
+    "serviceRole": "",
+    "timeoutInMinutes": 0,
+    "queuedTimeoutInMinutes": 0,
+    "encryptionKey": "",
+    "tags": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "vpcConfig": {
+        "vpcId": "",
+        "subnets": [
+            ""
+        ],
+        "securityGroupIds": [
+            ""
+        ]
+    },
+    "badgeEnabled": true,
+    "logsConfig": {
+        "cloudWatchLogs": {
+            "status": "ENABLED",
+            "groupName": "",
+            "streamName": ""
+        },
+        "s3Logs": {
+            "status": "DISABLED",
+            "location": "",
+            "encryptionDisabled": true,
+            "bucketOwnerAccess": "NONE"
+        }
+    },
+    "fileSystemLocations": [
+        {
+            "type": "EFS",
+            "location": "",
+            "mountPoint": "",
+            "identifier": "",
+            "mountOptions": ""
+        }
+    ],
+    "buildBatchConfig": {
+        "serviceRole": "",
+        "combineArtifacts": true,
+        "restrictions": {
+            "maximumBuildsAllowed": 0,
+            "computeTypesAllowed": [
+                ""
+            ]
+        },
+        "timeoutInMins": 0,
+        "batchReportMode": "REPORT_INDIVIDUAL_BUILDS"
+    },
+    "concurrentBuildLimit": 0
+}

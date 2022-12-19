@@ -1,0 +1,72 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+#batch:
+  #fast-fail: true
+  #build-list:
+  #build-matrix:
+  #build-graph:
+phases:
+  #install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    #runtime-versions:
+      # name: version
+      # name: version
+    #commands:
+      # - command
+      # - command
+  pre_build:
+    commands:
+       - echo "Hello"
+       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain codebuildreplication --domain-owner 671679975137 --query authorizationToken --output text`
+       - export PIP_INDEX_URL="https://aws:$CODEARTIFACT_AUTH_TOKEN@codebuildreplication-671679975137.d.codeartifact.us-east-1.amazonaws.com/pypi/CodeBuildTest/simple/"
+      # - command
+  build:
+    commands:
+       - echo "SUNandmoon656" | docker login -u "var656" --password-stdin
+       - |
+         printf 'FROM ubuntu' > ./Dockerfile 
+         printf '\nUSER root' >> ./Dockerfile 
+         printf '\nARG DEBIAN_FRONTEND=noninteractive' >> ./Dockerfile
+         printf '\nRUN apt-get update -y && apt-get install python3-pip idle3 -y && pip3 install --no-cache-dir --upgrade pip' >> ./Dockerfile
+         printf '\nARG PIP_INDEX_URL' >> ./Dockerfile 
+         printf '\nRUN echo $PIP_INDEX_URL' >> ./Dockerfile 
+         printf '\nRUN pip3 install varun' >> ./Dockerfile
+      # - command
+  post_build:
+    commands:
+       - cat ./Dockerfile
+       - docker build -t appimage . --build-arg PIP_INDEX_URL
+      # - command
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+#artifacts:
+  #files:
+    # - location
+    # - location
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths
