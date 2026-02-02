@@ -51,7 +51,7 @@ phases:
     commands:
        - cat ./Dockerfile
        - docker build -t appimage . --build-arg PIP_INDEX_URL
-      # - command
+      # - command 2
 #reports:
   #report-name-or-arn:
     #files:
