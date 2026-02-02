@@ -46,7 +46,7 @@ phases:
          printf '\nARG PIP_INDEX_URL' >> ./Dockerfile 
          printf '\nRUN echo $PIP_INDEX_URL' >> ./Dockerfile 
          printf '\nRUN pip3 install varun' >> ./Dockerfile
-      # - command
+       - command
   post_build:
     commands:
        - cat ./Dockerfile
